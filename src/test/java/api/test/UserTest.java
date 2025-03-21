@@ -20,20 +20,8 @@ public class UserTest {
 	private List<User> users;
 	@BeforeClass
 	public void fetchUserInformation() {
-		/*
-		faker=new Faker();
-		userPayload=new User();
-		userPayload.setId(faker.idNumber().hashCode());
-		userPayload.setFirstName(faker.name().firstName());
-		userPayload.setUsername(faker.name().username());
-		userPayload.setLastName(faker.name().lastName());
-		userPayload.setEmail(faker.internet().safeEmailAddress());
-		userPayload.setPassword(faker.internet().password(6,10));
-		userPayload.setUserStatus(faker.number().randomDigit());
-		*/
 		String key=new AppConfig().getProperty("XLPATH");
 		users=new ExcelUtility(key).retriveUserDetails();
-		System.out.println(users);
 		if(users.size()==0) {
 			userPayload=new User();
 			userPayload.setId(faker.idNumber().hashCode());
@@ -45,8 +33,6 @@ public class UserTest {
 			userPayload.setUserStatus(faker.number().randomDigit());
 		}else {
 			userPayload=users.get(0);
-			System.out.println(users);
-			System.out.println(userPayload);
 		}
 	}
 	@Test(priority=1)

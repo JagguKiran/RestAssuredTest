@@ -37,12 +37,10 @@ public class ExtentReportManager implements ITestListener{
 		System.out.println("On Start METHOD");
 	}
 	public void onTestSuccess(ITestResult result) {
-		System.out.println("On Success Start");
 		extent=reports.createTest(result.getName());
 		extent.assignCategory(result.getMethod().getGroups());
 		extent.createNode(result.getName());
 		extent.log(Status.PASS,"Test Passed");
-		System.out.println("On Success Completes");
 	}
 	public void onTestFailure(ITestResult result) {
 		extent=reports.createTest(result.getName());

@@ -15,7 +15,6 @@ public class DataProviders {
 		AppConfig config=new AppConfig();
 		String path=config.getProperty("XLPATH");
 		List<User> users=new ExcelUtility(path).retriveUserDetails();
-		System.out.println(users);
 		return users.iterator();
 	}
 	
@@ -26,7 +25,6 @@ public class DataProviders {
 		List<User> users=new ExcelUtility(path).retriveUserDetails();
 		List<String> al=new ArrayList<String>();
 		for(User user:users)al.add(user.getUsername());
-		System.out.println(al);
 		return al.iterator();
 	}
 }
