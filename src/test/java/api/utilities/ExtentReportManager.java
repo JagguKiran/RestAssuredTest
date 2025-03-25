@@ -33,8 +33,6 @@ public class ExtentReportManager implements ITestListener{
 		reports.setSystemInfo("User Name",System.getProperty("user.name"));
 		reports.setSystemInfo("Environment","QA");
 		reports.setSystemInfo("USER","Kiran Kumar");
-		
-		System.out.println("On Start METHOD");
 	}
 	public void onTestSuccess(ITestResult result) {
 		extent=reports.createTest(result.getName());
